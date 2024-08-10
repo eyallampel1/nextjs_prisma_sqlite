@@ -1,7 +1,7 @@
 import { db } from '@/db';
 import Link from "next/link";
 
-export  async function ShowSnippit2() {
+export  default async function ShowSnippit2() {
     const snippets = await db.SnippitTable.findMany();
 console.log("snippet is: ", snippets);
 
