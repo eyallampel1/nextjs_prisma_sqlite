@@ -97,13 +97,13 @@ Running generate... (Use --skip-generate to skip the generators)
 
 - Prisma will generate your db in the root directory with the name `dev.db` and also generate the prisma client in the `node_modules` directory.
 - Now you need to add a prisma client to access the database from the frontend (One time only in a project).
-  Create a file `prisma/db.js` and add the following code:
+  Create a folder and inside it a file 'index.js' `src/app/db/index.js` and add the following code:
 ```javascript
 import {PrismaClient} from '@prisma/client';
 
 export const db = new PrismaClient();
 ```
-- Now you can access the database from the frontend by importing the `db` object from `prisma/db.js` file , this db object will allow us to add / remove / change data inside our database.
+- Now you can access the database from the frontend by importing the `db` object from `db/db.js` file , this db object will allow us to add / remove / change data inside our database.
 - Lets say we want to add a snippet to the database, we can do it like this:
 ```javascript
 db.snippet.create({
@@ -165,4 +165,3 @@ export default function Home() {
     );
 }
 ```
-- `npx prisma generate` to generate the prisma client.

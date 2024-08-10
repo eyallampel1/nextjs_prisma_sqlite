@@ -1,6 +1,6 @@
 import { db } from '@/db';
+import Link from "next/link";
 export default function Home() {
-
 
     async function handleSubmit(formData) {
         //this is a server action !
@@ -12,9 +12,9 @@ export default function Home() {
         const language = formData.get('language');
         console.log("title is: " + title, "code is: " + code, "lang is: " + language);
 
-        //create a new snippet in the database (the table is called Snippit like in out schema.prisma file)
+        //create a new snippet in the database (the table is called Snippit like in our schema.prisma file)
 
-        const snippet = await db.Snippit.create({
+        const snippet = await db.SnippitTable.create({
             data: {
                 title: title,
                 code: code,
@@ -42,6 +42,8 @@ export default function Home() {
                 </div>
                 <button className={"bg-blue-300 hover:bg-blue-100 rounded"} type="submit">Add snippet</button>
             </div>
+            <Link href="/showSnippit">Show a snippit </Link>
         </form>
+
     );
 }
