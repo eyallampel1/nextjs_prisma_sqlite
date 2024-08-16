@@ -1,6 +1,12 @@
 import { db } from '@/db';
 import Link from "next/link";
+import {redirect} from "next/navigation";
+
+
+
 export default function Home() {
+
+
 
     async function handleSubmit(formData) {
         //this is a server action !
@@ -23,6 +29,8 @@ export default function Home() {
             },
         });
         console.log("snippet created: ", snippet);
+        // Redirect to the showSnippit page after creation
+        // redirect('/showSnippit');
     }
 
     return (
@@ -42,7 +50,7 @@ export default function Home() {
                 </div>
                 <button className={"bg-blue-300 hover:bg-blue-100 rounded"} type="submit">Add snippet</button>
             </div>
-            <Link href="/showSnippit">Show a snippit </Link>
+<Link href="/showSnippit">Show Snippets</Link>
         </form>
 
     );

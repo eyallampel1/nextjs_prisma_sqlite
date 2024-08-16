@@ -1,7 +1,9 @@
 import { db } from '@/db';
 import Link from "next/link";
+import {redirect} from "next/navigation";
 
 export  default async function ShowSnippit2() {
+
     const snippets = await db.SnippitTable.findMany();
 console.log("snippet is: ", snippets);
 
